@@ -40,7 +40,6 @@ svg_template = """
 """
 @app.route('/v1/<initials>/')
 def in_(initials):
-    host = domain(request.referrer)
     randy = randint(0,920)
     color = colors_[randy]
     svg = svg_template.format(color,initials)
