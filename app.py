@@ -108,4 +108,4 @@ def init_color_ident(initials, color, ident):
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
