@@ -42,7 +42,7 @@ svg_template = """
 @app.route('/v1/<initials>/')
 def init(initials):
     try:
-        host = domain(request.referrer)
+        host = domain(request.referer)
     except:
         host = 'unknown'
     uhid = '{}_{}'.format(initials,host)
