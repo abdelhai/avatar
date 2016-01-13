@@ -42,7 +42,7 @@ svg_template = """
 @app.route('/v1/<initials>/')
 def init(initials):
     try:
-        host = domain(request.referer)
+        host = domain(request.referrer)
     except:
         host = 'unknown'
     uhid = '{}_{}'.format(initials,host)
@@ -63,10 +63,12 @@ def init(initials):
 
 @app.route('/v1/<initials>/<color>/')
 def init_color(initials, color):
+    # print domain(request.referrer)
     try:
-        host = domain(request.referer)
+        host = domain(request.referrer)
     except:
         host = 'unknown'
+
     uhid = '{}_{}_{}'.format(initials,color,host)
     obj = AvatarData.objects(uhid=uhid).first()
     if not obj:
@@ -83,9 +85,10 @@ def init_color(initials, color):
 @app.route('/v1/<initials>/<color>/<ident>/')
 def init_color_ident(initials, color, ident):
     try:
-        host = domain(request.referer)
+        host = domain(request.referrer)
     except:
         host = 'unknown'
+    print host
     uhid = '{}_{}_{}_{}'.format(initials,color,ident,host)
     obj = AvatarData.objects(uhid=uhid).first()
     if not obj:
@@ -105,4 +108,4 @@ def init_color_ident(initials, color, ident):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
