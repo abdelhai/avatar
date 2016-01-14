@@ -6,7 +6,7 @@ import time
 
 def svg_png(svg):
     temp_png = 'temp_{}.png'.format(str(time.time()).replace('.', '-'))
-    apikey = "wC16nGlz4WpEEsG5z8PdCXKUbGT1HwDpSHNozNo1uNtiNGhmI034qyiV-zE2KgCNLSp1TNPitFF002Tz_vlqoQ"
+    apikey = "<apikey>"
     process = CloudConvert.ConversionProcess(apikey)
 
     # This should autodetect file extension. if not, you can
