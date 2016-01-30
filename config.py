@@ -1,5 +1,8 @@
 from mongoengine import connect
+import os
+
+mongo_host = os.environ.get('MONGO_HOST')
 
 def connect_db():
     connect('avatar', 
-    host='mongodb://<username>:<pw><host>:<port>/<dbname>')
+    host=mongo_host)
