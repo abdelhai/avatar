@@ -84,10 +84,10 @@ def init_color(initials, color):
 
 @app.route('/v1/<initials>/<color>/<ident>/')
 def init_color_ident(initials, color, ident):
-#    try:
-    host = domain(request.referrer)
-#    except:
-#        host = 'unknown'
+    try:
+        host = domain(request.referrer)
+    except:
+        host = 'unknown'
     print request.referrer, host
     uhid = '{}_{}_{}_{}'.format(initials,color,ident,host)
     obj = AvatarData.objects(uhid=uhid).first()
